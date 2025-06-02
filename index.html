@@ -26,6 +26,10 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+ <script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+ </script>
 </head>
 <body>
 
@@ -324,11 +328,13 @@
         <div class="content has-text-justified">
 
           <p>
-            Finetuning on hierarchical VQA tasks improves VLLMs' hierarchical consistency on visual inputs while preserving their performance on general VQA tasks. 
-            Intriguingly, the finetuning benefits the LLMs (text) hierarchical consistency more than the corresponding VLLMMs (visual) hierarchical measure.
-            To some extent, this finding reaffirms that LLMs are the bottleneck of VLLMs' hierarchical visual understanding, and one has to improve LLMs' (text) taxonomy
-            knowledge to boost VLLMs' (visual) hierarchical consistency.
+            Following this work’s position, we provide a concrete case study about Contrastive Language-Image Pretraining (CLIP) to bridge the position with real-world applications and, in return, explore the position in depth, spanning multiple factors and perspectives.
           </p>
+          <p>
+            We envision that Oudi Inc., a car manufacturer and an enterprise user of the CLIP model, has retired their O1 sedan for some reason. Accordingly, Oudi's product team requests that the Oudi O1 concept be unlearned from CLIP. An unlearner is equipped with existing MU methods developed in the research community but realizes they all operate on the training data points.
+            The unlearner cannot access CLIP's training data; instead, they assemble a set of exemplar Oudi O1 images as the proxy forgetting set \( \mathcal{D}^f \) (but no retention set for convenience).
+          </p>
+
 
           <img src="./static/images/img_lora.png"
                  alt="Main table results."/>
