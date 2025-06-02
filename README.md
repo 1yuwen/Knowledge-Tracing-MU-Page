@@ -1,4 +1,4 @@
-# LLM Hierarchical Consistency
+# Knowledge-Tracing-MU
 
 This website is adapted from [Nerfies](https://nerfies.github.io).
 
