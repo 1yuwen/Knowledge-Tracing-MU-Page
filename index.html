@@ -252,15 +252,6 @@
             <img src="./static/images/teaser.png"
                  alt="Knowledge-Tracing Machine Unlearning."/>
 
-            <h5>Our Main Findings</h5>
-            <ul>
-              <li>Many state-of-the-art VLLMs struggle with our hierarchical VQA tasks, showing a substantial lack of hierarchical consistency. 
-                For example, Qwen2.5-VL-72B makes errors on over 67% of the hierarchical paths in the iNaturalist taxonomy.</li>
-              <li>The LLM component is the primary bottleneck, lacking taxonomy knowledge of the visual world.</li>
-              <li>In contrast, the visual encoder and projector retain highly discriminative and well-structured visual features.</li>
-              <li>LLM embeddings capture sufficient hierarchical cues and organize visual concepts orthogonally, but the model fails to decode them properly.</li>
-              <li>Finetuning a VLLM on our VQA tasks improves the LLM's text-based hierarchical consistency more than its visual hierarchical consistency, reaffirming the LLM bottleneck.</li>
-            </ul>
 
           </div>
 
@@ -274,7 +265,7 @@
       <div class="column is-full-width">
 
         <!-- Interpolating. -->
-        <h3 class="title is-3">Vision LLMs Are Bad at Hierarchical Visual Understanding</h3>
+        <h3 class="title is-3"> Key differences between existing data-tracing MU and the advocated knowledge-tracing FMU</h3>
         <div class="content has-text-justified">
          <ul>
           <li>
