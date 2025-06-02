@@ -75,7 +75,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Vision LLMs Are Bad at Hierarchical Visual Understanding, and LLMs Are the Bottleneck</h1>
+          <h1 class="title is-1 publication-title">Lifting Data-Tracing Machine Unlearning to Knowledge-Tracing for Foundation Models</h1>
           <div class="is-size-5 publication-authors">
           <span class="author-block">
             <a href="https://openreview.net/profile?id=~Yuwen_Tan1">Yuwen Tan</a><sup>1*</sup>,
@@ -221,11 +221,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            This paper reveals that many state-of-the-art large language models (LLMs) lack hierarchical knowledge about our visual world, unaware of even well-established biology taxonomies. 
-            This shortcoming makes LLMs a bottleneck for vision LLMs' hierarchical visual understanding (e.g., recognizing <span style="font-family: Menlo, monospace;">Anemone Fish</span> but not <span style="font-family: Menlo, monospace;">Vertebrate</span>). 
-            We arrive at these findings using about one million four-choice visual question answering (VQA) tasks constructed from six taxonomies and four image datasets. 
-            Interestingly, finetuning a vision LLM using our VQA tasks reaffirms LLMs' bottleneck effect to some extent because the VQA tasks improve the LLM's hierarchical consistency more than the vision LLM's. 
-            We conjecture that one cannot make vision LLMs understand visual concepts fully hierarchical until LLMs possess corresponding taxonomy knowledge.
+            Machine unlearning removes certain training data points and their influence on AI models (e.g. when a data owner revokes their decision to allow models to learn from the data). In this position paper, we propose to lift data-tracing machine unlearning to knowledge-tracing for foundation models (FMs). We support this position based on practical needs and insights from cognitive studies. Practically, tracing data cannot meet the diverse unlearning requests for FMs, 
+            which may be from regulators, enterprise users, product teams, etc., having no access to FMs' massive training data. Instead, it is convenient for these parties to issue an unlearning request about the knowledge or capability FMs (should not) possess. 
+            Cognitively, knowledge-tracing unlearning aligns with how the human brain forgets more closely than tracing individual training data points. 
+            Finally, we provide a concrete case study about a vision-language FM to illustrate how an unlearner might instantiate the knowledge-tracing machine unlearning paradigm. 
           </p>
         </div>
       </div>
