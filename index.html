@@ -78,7 +78,7 @@
           <h1 class="title is-1 publication-title">Lifting Data-Tracing Machine Unlearning to Knowledge-Tracing for Foundation Models</h1>
           <div class="is-size-5 publication-authors">
           <span class="author-block">
-            <a href="https://openreview.net/profile?id=~Yuwen_Tan1">Yuwen Tan</a><sup>1*</sup>,
+            <a href="https://openreview.net/profile?id=~Yuwen_Tan1">Yuwen Tan</a><sup>1</sup>,
           </span>
           <span class="author-block">
             <a href="http://boqinggong.info/">Boqing Gong</a><sup>1</sup>
@@ -314,46 +314,6 @@
                   JSON format.)
                   </p>
 
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-
-    <div class="columns is-centered">
-      <div class="column">
-        <h2 class="title is-4">LLMs Are the Bottleneck in VLLMs' Hierarchical Visual Understanding</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <h2 class="title is-5">Open-Source VLLMs' LLMs Lack Taxonomy Knowledge</h2>
-            <p>
-            <em>Surprisingly</em>, we find that the generally believed powerful LLMs, even the one with 72B parameters in our experiments, lack basic taxonomy knowledge and are likely responsible
-              for VLLMs' poor performance on hierarchical visual understanding.
-            </p>
-            <img src="./static/images/texthca.png"
-                 alt="Hierarchical visual understanding."/>
-
-            <p>
-              (Text) HCA of VLLMs' LLMs and its correlation &rho; with VLLMs' (visual) HCA. The results show that the LLMs' HCA is generally bad across all taxonomies, and the correlation &rho; between text and visual HCA can be as high as 0.9116.
-            </p>
-
-            <h2 class="title is-5">Vision-Language Tuning Is <em>Not</em> the Reason</h2>
-            <p>
-              We present an extended comparison between vision-tuned LLMs and their original counterparts for all 7B/8B open-source VLLMs.
-              As shown, with the exception of LLaVA-OV-7B, all other models exhibit improved performance in their vision-tuned versions on at least 3 out of the 5 benchmarks.
-            </p>
-            <img src="./static/images/neurips_bar_chart_delta_app.png"
-                 alt="Hierarchical visual understanding."/>
-
-             <h2 class="title is-5">LLMs Encode Hierarchical Structures Effectively but Cannot Decode Them Sufficiently</h2>
-            <p>
-              We use three different types of prompts to probe the text features of VLLMs' LLMs and find that the LLMs are capable of encoding hierarchical structures but fail to decode them properly.
-              In other words, the specialized linear probes can decode the taxonomy knowledge significantly better than the general-purpose LLM.
-            </p>
-            <img src="./static/images/text_probing.png"
-                 alt="Hierarchical visual understanding."/>
           </div>
 
         </div>
