@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Vision LLMs Are Bad at Hierarchical Visual Understanding, and LLMs Are the Bottleneck">
+  <meta name="keywords" content="LLM Hierarchical Consistency">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision LLMs Are Bad at Hierarchical Visual Understanding, and LLMs Are the Bottleneck</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/bu_logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Vision LLMs Are Bad at Hierarchical Visual Understanding, and LLMs Are the Bottleneck</h1>
+          <div class="is-size-5 publication-authors">
+          <span class="author-block">
+            <a href="https://openreview.net/profile?id=~Yuwen_Tan1">Yuwen Tan</a><sup>1*</sup>,
+          </span>
+          <span class="author-block">
+            <a href="https://www.linkedin.com/in/yuan-qing/">Yuan Qing</a><sup>1*</sup>,
+          </span>
+          <span class="author-block">
+            <a href="http://boqinggong.info/">Boqing Gong</a><sup>1</sup>
+          </span>
+        </div>
+        <p><small><sup>*</sup>Equal contribution</small></p>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Boston University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link.
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yuanqing-ai/LLM-Hierarchical-Consistency"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/Captain1874/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>Checkpoints</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper reveals that many state-of-the-art large language models (LLMs) lack hierarchical knowledge about our visual world, unaware of even well-established biology taxonomies. 
+            This shortcoming makes LLMs a bottleneck for vision LLMs' hierarchical visual understanding (e.g., recognizing <span style="font-family: Menlo, monospace;">Anemone Fish</span> but not <span style="font-family: Menlo, monospace;">Vertebrate</span>). 
+            We arrive at these findings using about one million four-choice visual question answering (VQA) tasks constructed from six taxonomies and four image datasets. 
+            Interestingly, finetuning a vision LLM using our VQA tasks reaffirms LLMs' bottleneck effect to some extent because the VQA tasks improve the LLM's hierarchical consistency more than the vision LLM's. 
+            We conjecture that one cannot make vision LLMs understand visual concepts fully hierarchical until LLMs possess corresponding taxonomy knowledge.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video.
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3">Hierarchical Visual Understanding</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              This work systematically evaluates the hierarchical visual understanding capabilities of vision-language models (VLLMs) using six taxonomies (iNat21-Animal, iNat21-Plant, ImageNet-Animal, ImageNet-Artifact, CUB-200, Food101) and four hierarchical image classification datasets (iNat21, ImageNet, CUB-200, Food101). 
+              Unlike flat classification, which treats labels as mutually exclusive and unstructured, hierarchical image classification categorizes visual inputs into semantically structured categories across multiple levels of specificity. 
+              We construct approximately one million four-choice visual question-answering (VQA) tasks from the hierarchical datasets. Each task spans all taxonomy levels, with the four answer choices drawn from the same level.
+              To evaluate model performance, we emphasize hierarchical consistency, a property unique to hierarchical visual understanding and essential for adapting to users' varying preferences for granularity.
+            </p>
+            <img src="./static/images/example.png"
+                 alt="Hierarchical visual understanding."/>
+
+            <h5>Our Main Findings</h5>
+            <ul>
+              <li>Many state-of-the-art VLLMs struggle with our hierarchical VQA tasks, showing a substantial lack of hierarchical consistency. 
+                For example, Qwen2.5-VL-72B makes errors on over 67% of the hierarchical paths in the iNaturalist taxonomy.</li>
+              <li>The LLM component is the primary bottleneck, lacking taxonomy knowledge of the visual world.</li>
+              <li>In contrast, the visual encoder and projector retain highly discriminative and well-structured visual features.</li>
+              <li>LLM embeddings capture sufficient hierarchical cues and organize visual concepts orthogonally, but the model fails to decode them properly.</li>
+              <li>Finetuning a VLLM on our VQA tasks improves the LLM's text-based hierarchical consistency more than its visual hierarchical consistency, reaffirming the LLM bottleneck.</li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+
+        <!-- Interpolating. -->
+        <h3 class="title is-3">Vision LLMs Are Bad at Hierarchical Visual Understanding</h3>
+        <div class="content has-text-justified">
+         <ul>
+          <li>
+            <h5>Vision LLMs are bad across a range of taxonomies on hierarchical consistent accuracy (HCA) even when leaf-level accuracy (Acc<sub>leaf</sub>) is high.</h5>
+          </li>
+        </ul>
+
+          <img src="./static/images/main_table.png"
+                 alt="Main table results."/>
+
+         <ul>
+          <li>
+            <h5>Some error examples.</h5>
+          </li>
+        </ul>
+
+        <img src="./static/images/neurips2025-13 (4).png"
+                 alt="Main table results."/>
+        </div>
+        <br/>
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-3">Why Are VLLMs Poor at Hierarchical Image Classification?</h3>
+        <div class="content has-text-justified">
+          <p>
+           We systematically explore why VLLMs perform poorly on hierarchical visual understanding tasks from prompt sensitivity, visual representations, 
+           text representations and the geometry of hierarchical representations in VLLMs.
+          </p>
+
+        </div>
+        <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-4">Language Prompts Are Not the Bottleneck</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              We first extensively study prompt variations and reveal that some prompts can lead to marginally better results than the rest, but the results remain generally bad.
+            </p>
+            <img src="./static/images/prompt_bar_chart.png"
+                 alt="Hierarchical visual understanding."/>
+                 <p>
+                  Prompt variants and their effects on VLLMs' hierarchical consistency (HCA) and fine-
+                  grained recognition accuracy (Acc<sub>leaf</sub>) (Gen: general prompts, Hier: hierarchical prompts, +CoT: prompts
+                  with Chain-of-Thought reasoning, +Taxonomy: prompts that include an explicit taxonomy in the
+                  JSON format.)
+                  </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-4">Visual Embeddings Are Not the Bottleneck</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+            We then examine VLLMs' visual encoders and subsequent visual tokens to see whether and where essential visual information is lost when it forwards through VLLMs. 
+            Interestingly, the discriminative cues in the visual tokens are maintained across various stages of the VLLM architectures, leading to about the same hierarchical image classification results 
+            immediately after the visual encoder, after the projection to the language token space, and at the very last layer of an LLM.
+            </p>
+
+            <div style="text-align: center;">
+                <img src="./static/images/neurips_dual_bar_chart_compact.png"
+                    alt="Hierarchical visual understanding."
+                    style="width: 80%;" />
+              </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-4">LLMs Are the Bottleneck in VLLMs' Hierarchical Visual Understanding</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <h2 class="title is-5">Open-Source VLLMs' LLMs Lack Taxonomy Knowledge</h2>
+            <p>
+            <em>Surprisingly</em>, we find that the generally believed powerful LLMs, even the one with 72B parameters in our experiments, lack basic taxonomy knowledge and are likely responsible
+              for VLLMs' poor performance on hierarchical visual understanding.
+            </p>
+            <img src="./static/images/texthca.png"
+                 alt="Hierarchical visual understanding."/>
+
+            <p>
+              (Text) HCA of VLLMs' LLMs and its correlation &rho; with VLLMs' (visual) HCA. The results show that the LLMs' HCA is generally bad across all taxonomies, and the correlation &rho; between text and visual HCA can be as high as 0.9116.
+            </p>
+
+            <h2 class="title is-5">Vision-Language Tuning Is <em>Not</em> the Reason</h2>
+            <p>
+              We present an extended comparison between vision-tuned LLMs and their original counterparts for all 7B/8B open-source VLLMs.
+              As shown, with the exception of LLaVA-OV-7B, all other models exhibit improved performance in their vision-tuned versions on at least 3 out of the 5 benchmarks.
+            </p>
+            <img src="./static/images/neurips_bar_chart_delta_app.png"
+                 alt="Hierarchical visual understanding."/>
+
+             <h2 class="title is-5">LLMs Encode Hierarchical Structures Effectively but Cannot Decode Them Sufficiently</h2>
+            <p>
+              We use three different types of prompts to probe the text features of VLLMs' LLMs and find that the LLMs are capable of encoding hierarchical structures but fail to decode them properly.
+              In other words, the specialized linear probes can decode the taxonomy knowledge significantly better than the general-purpose LLM.
+            </p>
+            <img src="./static/images/text_probing.png"
+                 alt="Hierarchical visual understanding."/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <h3 class="title is-3">LLMs Gain More Hierarchical Consistency than VLLMs from Finetuning</h3>
+        <div class="content has-text-justified">
+
+          <p>
+            Finetuning on hierarchical VQA tasks improves VLLMs' hierarchical consistency on visual inputs while preserving their performance on general VQA tasks. 
+            Intriguingly, the finetuning benefits the LLMs (text) hierarchical consistency more than the corresponding VLLMMs (visual) hierarchical measure.
+            To some extent, this finding reaffirms that LLMs are the bottleneck of VLLMs' hierarchical visual understanding, and one has to improve LLMs' (text) taxonomy
+            knowledge to boost VLLMs' (visual) hierarchical consistency.
+          </p>
+
+          <img src="./static/images/img_lora.png"
+                 alt="Main table results."/>
+        <p>
+          (Visual) HCA and Acc<sub>leaf</sub> of Qwen2.5-VL-7B before and after the LoRA-finetuning.
+        </p>
+          <img src="./static/images/text_lora.png"
+                 alt="Main table results."/>
+        <p>
+          (Text) HCA of the LLM of Qwen2.5-VL-7B before and after the LoRA-finetuning.
+        </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>Add after arXiv</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p> This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
+          <p>
+            The website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
