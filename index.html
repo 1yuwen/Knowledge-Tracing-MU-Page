@@ -8,95 +8,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lifting Data-Tracing Machine Unlearning to Knowledge-Tracing for Foundation Models</title>
 
-  <!-- Fonts -->
+  
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
-  <!-- CSS Dependencies -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  
-  <!-- Custom CSS -->
-  <style>
-    .publication-title {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-    
-    .publication-authors {
-      margin-bottom: 1rem;
-    }
-    
-    .author-block {
-      margin-right: 1rem;
-    }
-    
-    .publication-links {
-      margin-top: 1.5rem;
-    }
-    
-    .link-block {
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-      display: inline-block;
-    }
-    
-    .hero-body {
-      padding: 3rem 1.5rem;
-    }
-    
-    .section {
-      padding: 3rem 1.5rem;
-    }
-    
-    .content img {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .content h5 {
-      font-weight: bold;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .content ul {
-      margin-bottom: 1rem;
-    }
-    
-    .content p {
-      text-align: justify;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    
-    .footer {
-      background-color: #f5f5f5;
-      padding: 3rem 1.5rem;
-    }
-    
-    pre {
-      background-color: #f5f5f5;
-      padding: 1rem;
-      border-radius: 4px;
-      overflow-x: auto;
-    }
-  </style>
-  
-  <!-- Icon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/bu_logo.png">
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+ <script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+ </script>
 </head>
 <body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
 
 <section class="hero">
   <div class="hero-body">
@@ -105,13 +81,13 @@
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Lifting Data-Tracing Machine Unlearning to Knowledge-Tracing for Foundation Models</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://openreview.net/profile?id=~Yuwen_Tan1">Yuwen Tan</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://boqinggong.info/">Boqing Gong</a><sup>1</sup>
-            </span>
-          </div>
+          <span class="author-block">
+            <a href="https://openreview.net/profile?id=~Yuwen_Tan1">Yuwen Tan</a><sup>1</sup>,
+          </span>
+          <span class="author-block">
+            <a href="http://boqinggong.info/">Boqing Gong</a><sup>1</sup>
+          </span>
+        </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Boston University</span>
@@ -119,16 +95,26 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- arXiv Link -->
+              <!-- PDF Link.
               <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Code Link -->
+              <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/1yuwen/Knowledge-Tracing-MU"
                    class="external-link button is-normal is-rounded is-dark">
@@ -136,9 +122,9 @@
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                </a>
-              </span>
+                  </a>
             </div>
+
           </div>
         </div>
       </div>
@@ -146,9 +132,84 @@
   </div>
 </section>
 
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract -->
+    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -162,101 +223,126 @@
         </div>
       </div>
     </div>
-  </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video.
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div> -->
 </section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
+
     <div class="columns is-centered">
       <div class="column">
         <h2 class="title is-3">Knowledge-Tracing Machine Unlearning</h2>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              Machine unlearning removes certain training data points and their influence on AI models (e.g. when a data owner revokes their decision to allow models to learn from the data). In this position paper, we propose to lift data-tracing machine unlearning to knowledge-tracing for foundation models (FMs). We support this position based on practical needs and insights from cognitive studies. Practically, tracing data cannot meet the diverse unlearning requests for FMs, 
-              which may be from regulators, enterprise users, product teams, etc., having no access to FMs' massive training data. Instead, it is convenient for these parties to issue an unlearning request about the knowledge or capability FMs (should not) possess. 
-              Cognitively, knowledge-tracing unlearning aligns with how the human brain forgets more closely than tracing individual training data points. 
-              Finally, we provide a concrete case study about a vision-language FM to illustrate how an unlearner might instantiate the knowledge-tracing machine unlearning paradigm. 
+           Machine unlearning removes certain training data points and their influence on AI models (e.g. when a data owner revokes their decision to allow models to learn from the data). In this position paper, we propose to lift data-tracing machine unlearning to knowledge-tracing for foundation models (FMs). We support this position based on practical needs and insights from cognitive studies. Practically, tracing data cannot meet the diverse unlearning requests for FMs, 
+            which may be from regulators, enterprise users, product teams, etc., having no access to FMs' massive training data. Instead, it is convenient for these parties to issue an unlearning request about the knowledge or capability FMs (should not) possess. 
+            Cognitively, knowledge-tracing unlearning aligns with how the human brain forgets more closely than tracing individual training data points. 
+            Finally, we provide a concrete case study about a vision-language FM to illustrate how an unlearner might instantiate the knowledge-tracing machine unlearning paradigm. 
             </p>
             <img src="./static/images/teaser.png"
                  alt="Knowledge-Tracing Machine Unlearning."/>
           </div>
+
         </div>
       </div>
     </div>
+    <!--/ Matting. -->
 
-    <!-- Main Content -->
+    <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
+
+        <!-- Interpolating. -->
         <div class="content has-text-justified">
-          <h3 class="title is-3">Lifting data to knowledge for FMU</h3>
+        <!--/ Interpolating. -->
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-3">Lifting data to knowledge for FMU</h3>
           <ul>
-            <li>
-              <h5>Key differences between existing data-tracing MU and the advocated knowledge-tracing FMU.</h5>
-            </li>
-          </ul>
+          <li>
+            <h5>Key differences between existing data-tracing MU and the advocated knowledge-tracing FMU.</h5>
+          </li>
+        </ul>
             <img src="./static/images/table1.png"
                  alt="difference."/>
           <ul>
-            <li>
-              <h5>Who might request FMU?</h5>
-            </li>
-          </ul>
-          <img src="./static/images/Community_teaser.png" alt="community"/>
- 
-          <p>
-            FMs are not exclusive to model developers; they are also the focal point of many other parties like data providers, product developers, legal and policy regulators, and researchers in the community
-          </p>
-        </div>
-
-        <ul>
           <li>
-            <h5>Knowledge-tracing FMU akin to human forgetting</h5>
+            <h5>Who might request FMU?</h5>
           </li>
         </ul>
-        <p>
-          We reinforce the significance of knowledge-tracing FMU using insights from cognitive and psychology studies about forgetting. Although forgetting is often perceived as harmful and frustrating in daily life, it is, in fact, an essential part of the human cognition process. 
-          It plays a vital role in knowledge acquisition, serving as a foundation for developing semantic and procedural understanding by enabling abstraction and automation. With limited cognitive capacity, humans excel at selectively forgetting at different levels, from instances to events to abstract knowledge, allowing them to prioritize relevant knowledge and enhance future learning. 
-        </p>
-      </div>
+      <img src="./static/images/Community_teaser.png" alt="community"/>
+      <p>
+        FMs are not exclusive to model developers; they are also the focal point of many other parties like data providers, product developers, legal and policy regulators, and researchers in the community
+      </p>
+        </div>
+
+         <ul>
+          <li>
+            <h5> Knowledge-tracing FMU akin to human forgetting</h5>
+          </li>
+        </ul>
+         <p>
+           We reinforce the significance of knowledge-tracing FMU using insights from cognitive and psychology studies about forgetting. Although forgetting is often perceived as harmful and frustrating in daily life, it is, in fact, an essential part of the human cognition process. 
+           It plays a vital role in knowledge acquisition, serving as a foundation for developing semantic and procedural understanding by enabling abstraction and automation. With limited cognitive capacity, humans excel at selectively forgetting at different levels, from instances to events to abstract knowledge, allowing them to prioritize relevant knowledge and enhance future learning. 
+         </p>
     </div>
 
     <h3 class="title is-3">Case Study</h3>
-    <div class="content has-text-justified">
-      <p>
-        Following this work's position, we provide a concrete case study about Contrastive Language-Image Pretraining (CLIP) to bridge the position with real-world applications and, in return, explore the position in depth, spanning multiple factors and perspectives.
-        We envision that Oudi Inc., a car manufacturer and an enterprise user of the CLIP model, has retired their O1 sedan for some reason. Accordingly, Oudi's product team requests that the Oudi O1 concept be unlearned from CLIP. An unlearner is equipped with existing MU methods developed in the research community but realizes they all operate on the training data points.
-        The unlearner cannot access CLIP's training data; instead, they assemble a set of exemplar Oudi O1 images as the proxy forgetting set \( \mathcal{D}^f \) (but no retention set for convenience).
-      </p>
+        <div class="content has-text-justified">
 
-      <img src="./static/images/case.png"
+          <p>
+            Following this work’s position, we provide a concrete case study about Contrastive Language-Image Pretraining (CLIP) to bridge the position with real-world applications and, in return, explore the position in depth, spanning multiple factors and perspectives.
+            We envision that Oudi Inc., a car manufacturer and an enterprise user of the CLIP model, has retired their O1 sedan for some reason. Accordingly, Oudi's product team requests that the Oudi O1 concept be unlearned from CLIP. An unlearner is equipped with existing MU methods developed in the research community but realizes they all operate on the training data points.
+            The unlearner cannot access CLIP's training data; instead, they assemble a set of exemplar Oudi O1 images as the proxy forgetting set \( \mathcal{D}^f \) (but no retention set for convenience).
+          </p>
+
+
+          <img src="./static/images/case.png"
                  alt="illustration of case study."/>
-      
-      <ul>
-        <li>
-          <h5>Datasets for Unlearning.</h5>
-        </li>
-      </ul>
-      <p>
-        We compile two fine-grained visual recognition datasets, CompCars-S and ImgnetDogs, of manmade and natural objects, respectively. CompCars-S is a subset of CompCars, a large-scale fine-grained car dataset with images from different viewpoints. 
-        It includes an extensive range of subcategories and a unique hierarchical structure. The subset we selected is relatively balanced and, more importantly, CLIP-friendly in that the CLIP model achieves high recognition accuracy. ImgnetDogs is a subset of ImageNet-1K, consisting of 99 fine-grained breeds of dogs worldwide. We randomly select 200 training images for each dog breed and use the corresponding validation subset in ImageNet as our test set. 
-        We use WordNet to find the coarse-grained labels for the dog breeds.
-      </p>
+          <ul>
+          <li>
+            <h5>Datasets for Unlearning.</h5>
+          </li>
+        </ul>
+        <p>
+          We compile two fine-grained visual recognition datasets, {CompCars-S} and ImgnetDogs, of manmade and natural objects, respectively. CompCars-S is a subset of  {CompCars}, a large-scale fine-grained car dataset with images from different viewpoints. 
+          It includes an extensive range of subcategories and a unique hierarchical structure. The subset we selected is relatively balanced and, more importantly, CLIP-friendly in that the CLIP model achieves high recognition accuracy. ImgnetDogs is a subset of ImageNet-1K, consisting of 99 fine-grained breeds of dogs worldwide. We randomly select 200 training images for each dog breed and use the corresponding validation subset in ImageNet as our test set. 
+          We use WordNet to find the coarse-grained labels for the dog breeds.
+        </p>
 
-      <ul>
+        <ul>
         <li>
-          <h5>Main Results.</h5>
-        </li>
-      </ul>
+            <h5>Main Results.</h5>
+      </li>
+        </ul>
 
-      <img src="./static/images/table2.png"
+            <img src="./static/images/table2.png"
                  alt="Main results."/>
 
-      <img src="./static/images/table3.png"
+           <img src="./static/images/table3.png"
                  alt="Different Difficulty."/>
+
+      </div>
     </div>
+    <!--/ Animation. -->
+
   </div>
 </section>
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -265,14 +351,25 @@
   </div>
 </section>
 
+
 <footer class="footer">
   <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-          <p>This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
+          <p> This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
           <p>
-            The website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            The website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
