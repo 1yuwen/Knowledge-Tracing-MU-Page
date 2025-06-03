@@ -342,27 +342,44 @@
         </ul>
         </div>
 
-          <p>
-          Given a dataset described above, the <strong>forgetting quality</strong> and <strong>utility</strong> are metrics calculated within this dataset.
-      Denote by <span style="font-family: monospace;">θ<sup>0</sup></span> and <span style="font-family: monospace;">θ<sup>u</sup></span> the CLIP models before and after unlearning, respectively.
-      </p>
+      <p>
+The <strong>utility</strong> measures the unlearned model's ability to preserve visual recognition performance on the classes 
+<b>other than</b> the forgetting targets.
+Importantly, we compute utility across the full taxonomy of class labels. For the two datasets in this work, 
+this includes both:
+</p>
 
-          <p>
-          We define <em>forgetting quality</em> as the model's degradation in recognition accuracy for the forgetting classes 
-          <span style="font-family: monospace;">𝒟<sup>f</sup> ⊆ 𝒞</span> after unlearning:
-            </p>
+<ul>
+  <li>\( \mathcal{D}^r = \mathcal{C} \setminus \mathcal{D}^f \): the <em>retention classes</em> at the same level as the forgetting ones, and</li>
+  <li>\( \mathcal{D}^r_{\text{Parent}} \) and \( \mathcal{D}^f_{\text{Parent}} \): the <em>parent classes</em> in the taxonomy.</li>
+</ul>
 
-          <p style="text-align: center;">
-        \( Q = 1 - \bar{\text{Acc}}(\mathcal{D}^f), \quad 
-       \bar{\text{Acc}}(\cdot) = \frac{\text{Acc}(\cdot; \theta^u)}{\text{Acc}(\cdot; \theta^0)} \)
-        </p>
+<p>
+Specifically, the utility \( U \) of the unlearned model is defined as:
+</p>
 
-        <p>
-      where \( \bar{\text{Acc}}(\mathcal{D}^f) \) is the relative accuracy of the unlearned model 
-      \( \theta^u \) on the forgetting classes \( \mathcal{D}^f \), scaled by that of the original model \( \theta^0 \). 
-    The higher the forgetting quality, the better, as it indicates how much of the targeted knowledge has been removed from CLIP.
-      </p>
-         <ul>
+<p style="text-align: center;">
+\( U = \frac{1}{3} \left( 
+\bar{\text{Acc}}(\mathcal{D}^r) + 
+\bar{\text{Acc}}(\mathcal{D}^r_{\text{Parent}}) + 
+\bar{\text{Acc}}(\mathcal{D}^f_{\text{Parent}}) 
+\right) \)
+</p>
+
+<p>
+where \( \bar{\text{Acc}}(\cdot) = \frac{\text{Acc}(\cdot; \theta^u)}{\text{Acc}(\cdot; \theta^0)} \) 
+is the same scaled accuracy function used in defining the forgetting quality.
+</p>
+
+<p>
+We then define the <strong>Q-U score</strong> as the harmonic mean of forgetting quality \( Q \) and utility \( U \), inspired by the F-score:
+</p>
+
+<p style="text-align: center;">
+\( \textsc{Q-U} = \frac{2QU}{Q + U} \)
+</p>
+
+       <ul>
           <li>
             <h5>Main Results.</h5>
           </li>
