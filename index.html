@@ -338,13 +338,15 @@
 
           <img src="./static/images/case.png"
                  alt="illustration of case study."/>
+          <ul>
+          <li>
+            <h5>Datasets for Unlearning.</h5>
+          </li>
+        </ul>
         <p>
-          (Visual) HCA and Acc<sub>leaf</sub> of Qwen2.5-VL-7B before and after the LoRA-finetuning.
-        </p>
-          <img src="./static/images/text_lora.png"
-                 alt="Main table results."/>
-        <p>
-          (Text) HCA of the LLM of Qwen2.5-VL-7B before and after the LoRA-finetuning.
+          We compile two fine-grained visual recognition datasets, {CompCars-S} and ImgnetDogs, of manmade and natural objects, respectively. CompCars-S is a subset of  {CompCars}, a large-scale fine-grained car dataset with images from different viewpoints. 
+          It includes an extensive range of subcategories and a unique hierarchical structure. The subset we selected is relatively balanced and, more importantly, CLIP-friendly in that the CLIP model achieves high recognition accuracy. ImgnetDogs is a subset of ImageNet-1K, consisting of 99 fine-grained breeds of dogs worldwide. We randomly select 200 training images for each dog breed and use the corresponding validation subset in ImageNet as our test set. 
+          We use WordNet to find the coarse-grained labels for the dog breeds.
         </p>
         </div>
 
