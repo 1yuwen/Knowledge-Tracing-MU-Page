@@ -334,7 +334,35 @@
           It includes an extensive range of subcategories and a unique hierarchical structure. The subset we selected is relatively balanced and, more importantly, CLIP-friendly in that the CLIP model achieves high recognition accuracy. ImgnetDogs is a subset of ImageNet-1K, consisting of 99 fine-grained breeds of dogs worldwide. We randomly select 200 training images for each dog breed and use the corresponding validation subset in ImageNet as our test set. 
           We use WordNet to find the coarse-grained labels for the dog breeds.
         </p>
+
+            <ul>
+          <li>
+            <h5>Evaluation Metrics.</h5>
+          </li>
+        </ul>
         </div>
+
+          <p>
+          Given a dataset described above, the <strong>forgetting quality</strong> and <strong>utility</strong> are metrics calculated within this dataset.
+      Denote by <span style="font-family: monospace;">θ<sup>0</sup></span> and <span style="font-family: monospace;">θ<sup>u</sup></span> the CLIP models before and after unlearning, respectively.
+      </p>
+
+          <p>
+          We define <em>forgetting quality</em> as the model's degradation in recognition accuracy for the forgetting classes 
+          <span style="font-family: monospace;">𝒟<sup>f</sup> ⊆ 𝒞</span> after unlearning:
+            </p>
+
+          <p style="text-align: center;">
+        \( Q = 1 - \bar{\text{Acc}}(\mathcal{D}^f), \quad 
+       \bar{\text{Acc}}(\cdot) = \frac{\text{Acc}(\cdot; \theta^u)}{\text{Acc}(\cdot; \theta^0)} \)
+        </p>
+
+        <p>
+      where \( \bar{\text{Acc}}(\mathcal{D}^f) \) is the relative accuracy of the unlearned model 
+      \( \theta^u \) on the forgetting classes \( \mathcal{D}^f \), scaled by that of the original model \( \theta^0 \). 
+    The higher the forgetting quality, the better, as it indicates how much of the targeted knowledge has been removed from CLIP.
+      </p>
+
 
       </div>
     </div>
